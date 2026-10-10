@@ -1,9 +1,13 @@
-<!--Este es el detalle mostrado en /productos/:id-->
-<article >
-    <p> 
-       
-    </p>
+<!--Este es el detalle mostrado en /reservas/:id-->
+<article class="detalle">
+    <h1>
+        <%= reserva.estudiante %>
+    </h1>
+    <!--Detalle carga y muestra los datos del json ya guardado-->
+    <p><%= reserva.email %></p>
+    <p><%= reserva.sala %></p>
+    <p><%= reserva.fecha %></p>
+    <p>Turno <%= reserva.turno %></p>
     
-
-    <a href="" >Volver a la pagina</a>
+    <a href="/reservas">Volver a la lista</a>
 </article>

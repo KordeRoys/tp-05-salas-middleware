@@ -1,8 +1,55 @@
 <!--Este es el formulario en /productos/nuevo-->
-<section >
+<section>
     <p class="etiqueta">NUEVO INGRESO</p>
     <h1>
         <%= titulo %>
-    </h1> 
-   
+    </h1>
+    <a class="boton" href="/reservas">Volver</a>
+    <% if (error) { %>
+        <p class="error" role="alert">
+            <%= error %>
+        </p>
+        <% } %>
+            <!-- action="/reservas" es la ruta del Post-->
+            <form action="/reservas" method="post" class="formulario">
+
+                <label for="estudiante">Participante</label>
+                <input id="estudiante" name="estudiante" value="<%= valores.estudiante || '' %>" required>
+
+                <label for="email"> Correo Electronico</label>
+                <input id="email" name="email" type="email" value="<%= valores.email || '' %>" required>
+
+                <label for="sala">Ingrese Sala</label>
+                <select id="sala" name="sala" required>
+                    <option value="">Seleccionar</option>
+                    <option value="Sala Multimedia">Sala Multimedia</option>
+                    <option value="Sala Norte">Sala Norte</option>
+                    <option value="Sala Sur">Sala Sur</option>
+                    <!-- Los valores del formulario tienen que coincidir exactamente con la validacion del index-->
+                </select>
+
+                <label for="fecha">Ingrese la fecha</label>
+                <input type="date" id="fecha" name="fecha" value="<%= valores.fecha || '' %>" required>
+
+                <label for="turno">Seleccione el turno</label>
+                <select id="turno" name="turno" required>
+                    <option value="">Seleccionar</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                    <option value="Noche">Noche</option>
+                    <!-- Los valores del formulario tienen que coincidir exactamente con la validacion del index-->
+                </select>
+
+                <label for="personas">Cantidad de personas: ( Entre 1 y 5 maximo)</label>
+                <select id="personas" name="personas" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <button type="submit">Confirmar Nueva reserva</button>
+            </form>
+
 </section>

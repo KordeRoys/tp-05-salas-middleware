@@ -1,14 +1,32 @@
 <!-- Esta es la pagina mostrada en /mascotas-->
-<header>
+<header> 
     <div>
-        <h2 >CATALOGO</h2>
+        <p>
+            <%= seccion %>
+        </p>
         <h1>
             <%= titulo %>
         </h1>
     </div>
-    <a class="boton" href=""></a>
+    <!--Boton para dar al usuario la opcion de agregar una nueva reserva-->
+    <a class="boton" href="/reservas/nueva">Nueva reserva</a>
 </header>
 
- <section>
-    
- </section>
+<!-- Ahora vamos a mostrar la lista usando EJS-->
+<% if (reservas.length===0) {  %>
+    <p>No hya reservas en el array</p>
+    <% } else { %>
+    <section aria-label="Inscripciones registradas">
+        <% reservas.forEach((reserva)=> { %>
+            <article>
+                <p><%=reserva.estudiante %></p>
+                <p><%=reserva.email %></p>
+                <p><%=reserva.sala %></p>
+                <p><%=reserva.fecha %></p>
+                <p>Turno:<%=reserva.turno %></p>
+                <p>Cantidad de personas:<%=reserva.personas %></p>
+                <a href="/reservas/<%= reserva.id %>">Ver detalle</a> <!-- Este enlace lleva al detalle del producto en la ruta /reserva/:id de index.js-->
+            </article>
+            <% }) %>
+    </section>
+    <% } %>
