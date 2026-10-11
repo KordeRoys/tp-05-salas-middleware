@@ -14,7 +14,7 @@
             <form action="/reservas" method="post" class="formulario">
 
                 <label for="estudiante">Participante</label>
-                <input id="estudiante" name="estudiante" value="<%= valores.estudiante || '' %>" required>
+                <input id="estudiante" name="estudiante" value="<%= valores.estudiante || '' %>" required> <!-- "<%= valores.estudiante || '' %>" esta expresion se va a usar para mostrar el valor del campo estudiante en el formulario en  -->
 
                 <label for="email"> Correo Electronico</label>
                 <input id="email" name="email" type="email" value="<%= valores.email || '' %>" required>
@@ -40,13 +40,15 @@
                     <!-- Los valores del formulario tienen que coincidir exactamente con la validacion del index-->
                 </select>
 
-                <label for="personas">Cantidad de personas: ( Entre 1 y 5 maximo)</label>
+                <label for="personas">Cantidad de personas: ( Entre 1 y 6 maximo)</label>
                 <select id="personas" name="personas" required>
+                    <option value="">Seleccionar personas</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
+                    <option value="6">6</option>
                 </select>
 
                 <button type="submit">Confirmar Nueva reserva</button>
