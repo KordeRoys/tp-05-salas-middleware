@@ -17,7 +17,7 @@ GET http://localhost:3000//reservas/:id
 POST http://localhost:3000//reservas
 
 ## Pipeline de middleware
-app.use(identificarSolicitud); -> app.use(medirDuracion);-> reservasRouter.use(prepararAreaReservas);
+app.use(morgan("dev")); --> app.use(identificarSolicitud); --> app.use(medirDuracion);  --> app.use(expressLayouts); --> app.use(express.static("")) --> express.urlencoded(...) --> app.use(express.json()); --> reservasRouter.use(prepararAreaReservas); --> app.use("/reservas", reservasRouter);
 
 ## Validación
 
