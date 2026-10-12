@@ -132,7 +132,7 @@ app.get("/estado", (req, res) => {
     res.status(200).json({
         servicio: "activo",
         reservas: reservas.length, //Esto muestra la cantidad de reservas guardadas en el array
-        //leagregaremos codigos de reservas para verols en /estado
+        //le agregaremos codigos de reservas para ver los en /estado
         codigosReservas: reservas.map((reserva) => `BIB-${String(reserva.id).padStart(4, "0")}`), //padStart(4, "0") sirve para que el id de la reserva tenga 4 digitos, agregando ceros a la izquierda si es necesario. Ej: BIB-0001, BIB-0002, BIB-0003
         solicitudId: res.locals.solicitudId, //Esta linea mmuestra la cantidad de solicitudes hechas y se suma en 1 por cada actualizacion
     })
